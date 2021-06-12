@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Mission3-1</title>
+  <title>Mission3-2</title>
 </head>
 
 <body>
@@ -24,11 +24,13 @@
   $fetched_boards = $boards->fetchAll(PDO::FETCH_ASSOC);
   ?>
     <article>
-      <?php 
+      <?php
       foreach ($fetched_boards as $board) {
-          echo '<hr>No: '.$board['id'].'<br>名前:' . $board['name'] . '<br>投稿内容: '.$board['content'].'<hr><br>';
-      }
+      echo '<hr>No: '.$board['id'].'<br>名前:' . $board['name'] . '<br>投稿内容: '.$board['content'].'<br><br>';
       ?>
+      <a href="delete.php?id=<?php print($board['id']);?>"><button>削除</button></a>
+      <hr><br>
+      <?php } ?>
     </article>
   </main>
 </body>
