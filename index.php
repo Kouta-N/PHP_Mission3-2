@@ -18,19 +18,23 @@
     </form>
     <h2>投稿内容</h2>
     <?php
-  require('db_connect.php');
-  $boards = $db->prepare('SELECT * FROM boards ORDER BY id ASC');
-  $boards->execute();
-  $fetched_boards = $boards->fetchAll(PDO::FETCH_ASSOC);
-  ?>
+      require('db_connect.php');
+      $boards = $db->prepare('SELECT * FROM boards ORDER BY id ASC');
+      $boards->execute();
+      $fetched_boards = $boards->fetchAll(PDO::FETCH_ASSOC);
+      $counter=1;
+    ?>
     <article>
       <?php
       foreach ($fetched_boards as $board) {
-      echo '<hr>No: '.$board['id'].'<br>名前:' . $board['name'] . '<br>投稿内容: '.$board['content'].'<br><br>';
-      ?>
+        echo '<hr>No: '.$counter.'<br>名前:' . $board['name'] . '<br>投稿内容: '.$board['content'].'<br><br>';
+        ?>
       <a href="delete.php?id=<?php print($board['id']);?>"><button>削除</button></a>
       <hr><br>
-      <?php } ?>
+      <?php 
+        $counter++;
+      } 
+      ?>
     </article>
   </main>
 </body>

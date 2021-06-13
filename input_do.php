@@ -19,7 +19,7 @@
     echo '<h2>値を入力してください。</h2>';
   }
 ?>
-    <button><a href="index.php">投稿一覧へ戻る</a></button>
+    <button onclick="location.href='index.php'">投稿一覧へ戻る</button>
   </main>
 </body>
 
